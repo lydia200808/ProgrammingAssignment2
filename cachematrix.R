@@ -28,10 +28,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve function computes the inverse of the special "matrix" returned 
-## by `makeCacheMatrix` above. If the inverse has already been 
-## calculated (and the matrix has not changed), then `cacheSolve` should 
-## retrieve the inverse from the cache.
+## cacheSolve function computes the inverse of the special "matrix" (which
+## is a list, actually)returned by `makeCacheMatrix` above. If the inverse 
+## has already been calculated (and the matrix has not changed), then 
+## `cacheSolve` should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
         
@@ -50,7 +50,7 @@ cacheSolve <- function(x, ...) {
         # compute the inverse of 'x'
         i <- solve(TempMat, ...)
         
-        # cache this inverse in third element of z
+        # cache this inverse in third element of list x
         x$setinverse(i)
         
         # return inverse matrix
